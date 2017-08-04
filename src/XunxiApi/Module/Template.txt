@@ -1,0 +1,19 @@
+<?php
+/**
+ *  PHP SDK FOR XUNXI
+ *  Class XunxiApi_Module_#Module_name
+ *  Please do not modify the contents of this document
+ *
+ *  Auth AIPAITEAM KIKI
+ *  QQ_GROUP_NUM 542294882
+ *  EMAIL 1452489466@qq.com
+ *  CREATE_TIME #Time
+ */
+
+class XunxiApi_Module_#Module_name
+{
+    public $_url = "#url";
+
+    public $_param = [#param];
+
+}

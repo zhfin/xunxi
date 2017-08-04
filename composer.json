@@ -1,0 +1,27 @@
+{
+  "name": "zhkiki/xunxi",
+  "description": "PHP SDK FOR XUNXI STATISTICS",
+  "keywords": [
+    "xunxi",
+    "statistics",
+    "sdk"
+  ],
+  "homepage": "http://www.uvsii.cn ",
+  "time": "2017-8-5",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/XunxiApi/Xunxi.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "kiki",
+      "email": "1452489466@qq.com",
+      "role": "A Lucky Boy"
+    }
+  ]
+}
