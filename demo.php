@@ -11,13 +11,13 @@ $query = [
     "type" => "update",// 不需要改变(开发者只能传入update值,否则将报错)
 ];
 
-$xunxi = new Xunxi();
 
 /**
  * run
- * @param module 方法名 均可用MODULE_NAME常量来调用
- * @param isShowExplain 是否显示中文解释 默认为false(不建议开启,仅可在调试时使用)
- * @return json || Explain
+ * @param $module 方法名 均可用MODULE_NAME常量来调用
+ * @param $query
+ * @param $isShowExplain 是否显示中文解释 默认为false(不建议开启,仅可在调试时使用)
+ * @return String json || Explain
  */
-
+$xunxi = new Xunxi();
 echo $xunxi::run($xunxi::MODULE_API_NEW,$query);
