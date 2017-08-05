@@ -25,26 +25,27 @@ class Xunxi
     const MODULE_TIMEIP = 'timeip';
     const MODULE_TOKEN = 'token';
 
-    public function __construct(Array $config)
+    public function __construct()
     {
-
 //        self::_updateModule(); //目前为静态调用 仅用于丢失Module文件夹时使用 默认为关闭状态
-
-        self::$_config = $config;
-
-//      获取token
-        $data = self::run("token");
-        $jd = json_decode($data);
-        // TODO DEAL RETURN NUMBER
-        if (isset($jd->code) && ($jd->code == "000001")) {
-            self::$_config["key"] = $jd->token;
-        }
 
     }
 
-    static public function run($module, $isShowExplain = false)
+    static public function run($module, $config, $isShowExplain = false)
     {
         require_once XUNXIAPI_ROOT_PATH . DIRECTORY_SEPARATOR . "Common" . DIRECTORY_SEPARATOR . "Request.php";
+        self::$_config = $config;
+        if ($module != self::MODULE_API_NEW) {
+
+            // TODO DEAL GET TOKEN FUNCTION
+            $requestToekn = new XunxiApi_Common_Request("token", self::$_config);
+            $data = $requestToekn::_send(false);
+            $jd = json_decode($data);
+            if ($jd->code == "000001") {
+                self::$_config["key"] = $jd->token;
+            }
+        }
+
         $request = new XunxiApi_Common_Request($module, self::$_config);
         return $request::_send($isShowExplain);
     }
