@@ -25,7 +25,6 @@ class XunxiApi_Common_Request
         self::$_requestUrl = $moduleClass->_url;
         self::paramBuild($config, $moduleClass->_param);
         require_once dirname(self::$moduleDir) . DIRECTORY_SEPARATOR . "Common/Error.php";
-
     }
 
     static private function autoLoad($module)

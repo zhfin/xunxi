@@ -11,7 +11,7 @@ $query = [
     "type" => "update",// 不需要改变(开发者只能传入update值,否则将报错)
 ];
 
-$xunxi = new Xunxi($query);
+$xunxi = new Xunxi();
 
 /**
  * run
@@ -20,4 +20,4 @@ $xunxi = new Xunxi($query);
  * @return json || Explain
  */
 
-echo $xunxi::run($xunxi::MODULE_API_NEW);
+echo $xunxi::run($xunxi::MODULE_API_NEW,$query);
