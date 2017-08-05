@@ -5,12 +5,10 @@ require_once "./src/XunxiApi/Xunxi.php";
 $query = [
     "user" => "",// 迅析用户名
     "sid" => "", // 迅析APP SID
-    "apikey" => 123456,// 开放api_key 可在个人中心查询
+    "apikey" => "",// 开放api_key 可在个人中心查询
     "json" => 1,// 不需要改变
-    "timestr" => time(),// 不需要改变
     "type" => "update",// 不需要改变(开发者只能传入update值,否则将报错)
 ];
-
 
 /**
  * run
@@ -20,4 +18,4 @@ $query = [
  * @return String json || Explain
  */
 $xunxi = new Xunxi();
-echo $xunxi::run($xunxi::MODULE_API_NEW,$query);
+echo $xunxi::run($xunxi::MODULE_TIMEIP,$query);

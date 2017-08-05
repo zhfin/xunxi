@@ -28,7 +28,6 @@ class Xunxi
     public function __construct()
     {
 //        self::_updateModule(); //目前为静态调用 仅用于丢失Module文件夹时使用 默认为关闭状态
-
     }
 
     static public function run($module, $config, $isShowExplain = false)
@@ -36,16 +35,15 @@ class Xunxi
         require_once XUNXIAPI_ROOT_PATH . DIRECTORY_SEPARATOR . "Common" . DIRECTORY_SEPARATOR . "Request.php";
         self::$_config = $config;
         if ($module != self::MODULE_API_NEW) {
-
             // TODO DEAL GET TOKEN FUNCTION
             $requestToekn = new XunxiApi_Common_Request("token", self::$_config);
             $data = $requestToekn::_send(false);
             $jd = json_decode($data);
             if ($jd->code == "000001") {
                 self::$_config["key"] = $jd->token;
+                self::$_config["timestr"] = $jd->timestr;
             }
         }
-
         $request = new XunxiApi_Common_Request($module, self::$_config);
         return $request::_send($isShowExplain);
     }
